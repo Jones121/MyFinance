@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-navbar class="navHeight">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>Statistiken</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content scrollbar-y-auto>
+    <ion-card>
+      <ion-card-header>
+          Insgesamte Einkommensverteilung    
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <canvas #Einkommensvergleich></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+         Insgesamte Ausgabenverteilung 
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <canvas #Ausgabenvergleich></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+          Veränderung des Einkommens
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <canvas #Einkommensveraenderung></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+          Veränderung der Ausgaben
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <canvas #Ausgabensveraenderung></canvas>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

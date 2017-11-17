@@ -1,0 +1,16 @@
+<ion-nav id="nav" [root]="rootPage" #nav></ion-nav>
+<ion-menu type="overlay" [content]="nav">
+  <ion-header class="navHeader" >
+    <ion-icon class="headerIcon center" name="logo-foursquare"></ion-icon>
+    <h5 class="headingColor center"><b>MyFinance</b></h5>
+  </ion-header>
+  
+  <ion-content scrollbar-y-auto>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>

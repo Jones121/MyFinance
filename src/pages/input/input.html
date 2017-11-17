@@ -1,0 +1,54 @@
+<ion-header no-border>
+  <ion-navbar class="navHeight">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>Eingabe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" scrollbar-y-auto>
+  <p *ngIf="submitAttempt" style="color: #ea6153;">Bitte füllen sie alle Felder genau aus.</p>
+  <form [formGroup]="myForm">
+        <ion-item>
+            <ion-label class="inputText" stacked><strong>Art</strong></ion-label>
+            <ion-select formControlName="art" [class.invalid]="!myForm.controls.art.valid && (myForm.controls.art.dirty || submitAttempt)">
+                <ion-option value="Einnahme">Einnahme</ion-option>
+                <ion-option value="Ausgabe">Ausgabe</ion-option>
+             </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label class="inputText" stacked><strong>Betrag</strong></ion-label>
+            <ion-input formControlName="betrag" type="number" step="0.01" [class.invalid]="!myForm.controls.betrag.valid && (myForm.controls.betrag.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label class="inputText" stacked><strong>Name</strong></ion-label>
+            <ion-input formControlName="name" type="text" [class.invalid]="!myForm.controls.name.valid && (myForm.controls.name.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label class="inputText" stacked><strong>Datum</strong></ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" formControlName="datum" [class.invalid]="!myForm.controls.datum.valid && (myForm.controls.datum.dirty || submitAttempt)"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label class="inputText" stacked><strong>Kategorie</strong></ion-label>
+            <ion-select formControlName="kategorie" [class.invalid]="!myForm.controls.kategorie.valid && (myForm.controls.kategorie.dirty || submitAttempt)">
+                <ion-option value="Miete">Miete</ion-option>
+                <ion-option value="Nebenkosten">Nebenkosten</ion-option>
+                <ion-option value="Gehalt">Gehalt</ion-option>
+                <ion-option value="Schulden">Schulden</ion-option>
+                <ion-option value="Lebensmittel">Lebensmittel</ion-option>
+                <ion-option value="Elektronisches">Elektronisches</ion-option>
+                <ion-option value="Gaming">Gaming</ion-option> 
+                <ion-option value="Klamotten">Klamotten</ion-option>
+                <ion-option value="Sportliches">Sportliches</ion-option>
+                <ion-option value="Aktiviäten">Aktiviäten</ion-option>
+                <ion-option value="Unisachen">Unisachen</ion-option> 
+                <ion-option value="Wohngegenstände">Wohngegenstände</ion-option>               
+             </ion-select>
+        </ion-item>
+     </form> 
+  <div class="center" margin-top>
+     <button ion-button (click)="setData()" color="#1382BD" round outline margin-right>Hinzufügen</button> 
+     <button ion-button (click)="resetForm()" color="#1382BD" round outline>Zurücksetzen</button> 
+  </div>
+</ion-content>

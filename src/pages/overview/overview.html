@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-navbar class="navHeight">
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>Übersicht</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content scrollbar-y-auto>
+  <ion-toolbar color="light">
+    <ion-title>
+      Kontostand:
+      <br> {{getSum()}} &euro;
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let buchung of buchungen">
+
+      <ion-item>
+        <ion-avatar  *ngIf="buchung.art == 'Einnahme'" class="center" item-left>
+          <ion-icon name="ios-add"></ion-icon>
+        </ion-avatar>
+
+        <ion-avatar *ngIf="buchung.art == 'Ausgabe'" class="center" item-left>
+            <ion-icon name="ios-remove"></ion-icon>
+        </ion-avatar>
+
+        <a (click)="openModal(buchung)">
+          <h2>{{buchung.name}}</h2>
+          <p>{{buchung.betrag}} &euro;</p>
+        </a>
+      </ion-item>
+
+      <ion-item-options>
+        <button ion-button icon-only (click)="removeBuchung(buchung)" danger>
+          <ion-icon name="trash"></ion-icon>
+          </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
